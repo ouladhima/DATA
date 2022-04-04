@@ -1,9 +1,12 @@
-import React from 'react';
-import Testbf   from './test';
+import "./App.css";
+import Form from "./components/Form";
 
 function App() {
   return (
-      <Testbf />
-  )}
+    <div className="App">
+      <Form />
+    </div>
+  );
+}
 
 export default App;
