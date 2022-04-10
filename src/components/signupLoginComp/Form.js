@@ -11,12 +11,14 @@ function Form() {
     confirmPassword: "",
     firstName: "",
     lastName: "",
-    username: "",
-    nationality: "",
-    other: "",
+    phoneNumber: "",
+    zipCode: "",
+    adress: "",
   });
 
-  const FormTitles = ["Sign Up", "Personal Info", "Other"];
+  const [loading, setLoading] = useState(false)
+
+  const FormTitles = ["M'inscrire", "Infos personnelles", "Adresse"];
 
   const PageDisplay = () => {
     if (page === 0) {
@@ -42,7 +44,7 @@ function Form() {
         <div className="body">{PageDisplay()}</div>
         <div className="footer">
           <button
-            disabled={page == 0}
+            disabled={page == 0 && loading}
             onClick={() => {
               setPage((currPage) => currPage - 1);
             }}
@@ -52,14 +54,15 @@ function Form() {
           <button
             onClick={() => {
               if (page === FormTitles.length - 1) {
-                alert("FORM SUBMITTED");
-                console.log(formData);
+                alert("okii");
               } else {
                 setPage((currPage) => currPage + 1);
               }
             }}
+            type = "submit"
+            disabled= {loading}
           >
-            {page === FormTitles.length - 1 ? "Submit" : "Next"}
+            {page === FormTitles.length - 1 ? "Je crée mon compte" : "Suivant"}
           </button>
         </div>
       </div>
